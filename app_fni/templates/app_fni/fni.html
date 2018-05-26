@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% load staticfiles %}
+
+
+{% block block_title %}
+    FNI
+{% endblock %}
+
+
+{% block block_content %}
+    <a class="btn btn-outline-primary" href={% url 'check_mail' %} >Проверить файлы json</a>
+
+
+
+    <script>
+        
+        function btn_fni_click() {
+            window.location.href = '';
+        }
+    
+    </script>
+
+
+{% endblock block_content %}

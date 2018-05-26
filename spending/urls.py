@@ -16,6 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import app_main.views
+import app_fni.views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('fni/',        app_fni.views.fni,          name='fni'),
+    path('check_mail/', app_fni.views.check_mail,   name='check_mail'),
+
+    path('home/', app_main.views.home, name='home'),
+    path('', app_main.views.home, name='home'),
+
 ]
+

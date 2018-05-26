@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block block_title %}
+    FNI
+{% endblock block_title %}
+
+{% block block_content %}
+    <p class="h5 text-justify text-uppercase text-center animated fadeInDown" style="color: #570230;">
+        Этот сайт предназначен для запроса и получения данных по чеку из магазина<br>
+    </p>
+
+    <a class="btn btn-outline-primary" href={% url 'fni' %} >Перейти на страницу запроса данных из FNI</a>
+
+{% endblock block_content %}
+
