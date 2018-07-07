@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,6 +41,14 @@ INSTALLED_APPS = [
 
     'app_main',
     'app_fni',
+    'app_auth',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'bootstrap4',
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +66,10 @@ ROOT_URLCONF = 'spending.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'app_auth', 'templates', 'app_auth')
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -72,7 +84,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'spending.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -107,7 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -126,3 +138,25 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 2
+
+LOGIN_REDIRECT_URL = '/'            # Default: '/accounts/profile/'
+LOGIN_URL = '/accounts/login/'      # Default: '/accounts/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "myspend.site@gmail.com"
+EMAIL_HOST_PASSWORD = "Privet4Matilda"
+EMAIL_USE_TLS = True

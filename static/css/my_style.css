@@ -1,3 +1,15 @@
 body {
-    background: #ffe3ba;
+    background: url("../img/white_leather.png"), rgba(24, 255, 255, 0.5);
+    /*background: url("../img/white_leather.png");*/
+    /*background: rgba(24, 255, 255, 0.5);*/
+
+}
+
+.falkov_navbar {
+    color: #b01111;
+}
+
+._button {
+    color: #01b6ad;
+    background-color: #0a4958;
 }
