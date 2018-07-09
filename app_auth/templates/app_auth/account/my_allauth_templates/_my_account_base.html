@@ -10,7 +10,7 @@
 
             {% if messages %}
                 <div>
-{#                    <strong>Messages:</strong>#}
+                    <strong>Сообщения системы контроля доступа:</strong>
                     <ul>
                         {% for message in messages %}
                             <li>{{ message }}</li>
@@ -21,10 +21,8 @@
 
             <div class="container-fluid ">
                 <div class="row justify-content-md-center">
-                    <div class="col-6 z-depth-2 lime lighten-5 rounded" style="padding: 40px">
-                        {% block content %}
-                        {% endblock content %}
-                    </div>
+                    {% block content %}
+                    {% endblock content %}
                 </div>
             </div>
 

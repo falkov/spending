@@ -1,57 +1,58 @@
-{% extends 'account/my_allauth_templates/account_base.html' %}
+{% extends 'account/my_allauth_templates/_my_account_base.html' %}
 {% load i18n %}
 
 {% block content %}
+    <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
+        <div>
+            <h3 class="text-center _text-shadow">{% trans "Sign In" %}</h3>
+        </div>
 
-    <div>
-        <h3 class="text-center">{% trans "Sign In" %}</h3>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+
+            {% for error_message in form.non_field_errors %}
+                <h5 class="text-center text-danger">{{ error_message|slice:":-1"|lower }}</h5>
+            {% endfor %}
+
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                <label for="{{ form.login.id_for_label }}">Имя пользователя</label>
+    {#            {{ form.login.label_tag }}#}
+                <input type="text" id="{{ form.login.id_for_label }}" name="{{ form.login.name }}" minlength="1" maxlength="150" required="" class="form-control">
+            </div>
+
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <label for="{{ form.password.id_for_label }}">Пароль</label>
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" required="" class="form-control">
+            </div>
+
+            <div class="row">
+                <div class="col form-check font-small text-center">
+                    <input type="checkbox" class="filled-in form-check-inline" id="id_remember" checked="checked" >
+                    <label class="form-check-label" for="id_remember">Запомнить меня</label>
+                </div>
+
+                <div class="col form-check font-small text-center">
+                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                </div>
+            </div>
+
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <br>
+
+            <div class="text-center">
+                <button style="width: 220px" class='btn blue-gradient btn-rounded' type="submit">{% trans "Sign In" %}</button>
+            </div>
+
+            <br>
+
+            <p class="text-center font-small">Если у вас ещё нет учётной записи, пожалуйста, сначала <a href="{{ signup_url }}">зарегистрируйтесь</a></p>
+        </form>
     </div>
-
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-
-        {% for error_message in form.non_field_errors %}
-            <h5 class="text-center text-danger">{{ error_message|slice:":-1"|lower }}</h5>
-        {% endfor %}
-
-        <div class="md-form">
-            <i class="fa fa-user prefix grey-text"></i>
-            <label for="{{ form.login.id_for_label }}">Имя пользователя</label>
-{#            {{ form.login.label_tag }}#}
-            <input type="text" id="{{ form.login.id_for_label }}" name="{{ form.login.name }}" minlength="1" maxlength="150" required="" class="form-control">
-        </div>
-
-        <div class="md-form">
-            <i class="fa fa-lock prefix grey-text"></i>
-            <label for="{{ form.password.id_for_label }}">Пароль</label>
-            <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" required="" class="form-control">
-        </div>
-
-        <div class="row">
-            <div class="col form-check font-small text-center">
-                <input type="checkbox" class="filled-in form-check-inline" id="id_remember" checked="checked" >
-                <label class="form-check-label" for="id_remember">Запомнить меня</label>
-            </div>
-
-            <div class="col form-check font-small text-center">
-                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-            </div>
-        </div>
-
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-
-        <br>
-
-        <div class="text-center">
-            <button style="width: 216px" class='btn blue-gradient btn-rounded' type="submit">{% trans "Sign In" %}</button>
-        </div>
-
-        <br>
-
-        <p class="text-center font-small">Если у вас ещё нет учётной записи, пожалуйста, сначала <a href="{{ signup_url }}">зарегистрируйтесь</a></p>
-    </form>
 {% endblock content %}
 
 {#{% extends "account/base.html" %}#}

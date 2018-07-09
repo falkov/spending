@@ -1,36 +1,34 @@
-{% extends 'account/my_allauth_templates/account_base.html' %}
+{% extends 'account/my_allauth_templates/_my_account_base.html' %}
 {% load i18n %}
 
 {% block content %}
+    <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
 
-{#    <div>#}
-{#        <h3 class="text-center">{% trans "Sign Out" %}</h3>#}
-{#    </div>#}
+{#        <div><h3 class="text-center _text-shadow">{% trans "Sign Out" %}</h3></div>#}
 
-    <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
 
-        {% for error_message in form.non_field_errors %}
-            <h5 class="text-center text-danger">{{ error_message|slice:":-1"|lower }}</h5>
-        {% endfor %}
+            {% for error_message in form.non_field_errors %}
+                <h5 class="text-center text-danger">{{ error_message|slice:":-1"|lower }}</h5>
+            {% endfor %}
 
-        <div>
-            <h5 class="text-center">Пользователь "{{ user }}"</h5>
-            <h5 class="text-center">{% trans "Are you sure you want to sign out?" %}</h5>
-        </div>
+            <div>
+                <h5 class="text-center">Пользователь "{{ user }}"</h5>
+                <h5 class="text-center">{% trans "Are you sure you want to sign out?" %}</h5>
+            </div>
 
-        <br>
+            <br>
 
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
 
-        <div class="text-center">
-            <button style="width: 216px" class='btn blue-gradient btn-rounded' type="submit">{% trans "Sign Out" %}</button>
-        </div>
-
-    </form>
-
+            <div class="text-center">
+                <button style="width: 220px" class='btn blue-gradient btn-rounded' type="submit">{% trans "Sign Out" %}</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}
 
 {#{% extends "account/base.html" %}#}
