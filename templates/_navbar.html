@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!-- Sidebar navigation -->
-<div id="slide-out" class="side-nav fixed" style="background-image: url('{% static 'img/sidenav_1.jpg' %}')">
+<div id="slide-out" class="side-nav fixed" style="background-image: url('{% static 'img/sidenav_image_city.jpg' %}')">
 {#<div id="slide-out" class="side-nav fixed">#}
 
     <ul class="custom-scrollbar">
@@ -142,12 +142,12 @@
 <!-- } Navbar -->
 
 
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-                        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-                    {% else %}
-                        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-                        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-                    {% endif %}
-                </ul>
+{#                <ul>#}
+{#                    {% if user.is_authenticated %}#}
+{#                        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>#}
+{#                        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>#}
+{#                    {% else %}#}
+{#                        <li><a href="{% url 'account_login' %}">Sign In</a></li>#}
+{#                        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>#}
+{#                    {% endif %}#}
+{#                </ul>#}

@@ -1,11 +1,15 @@
-{% extends "account/base.html" %}
-
+{% extends 'account/my_allauth_templates/_my_account_base.html' %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Account Inactive" %}{% endblock %}
-
 {% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
+    <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
 
-<p>{% trans "This account is inactive." %}</p>
-{% endblock %}
+        <div>
+            <h3 class="text-center _text-shadow">{% trans "Account Inactive" %}</h3>
+        </div>
+
+        <p class="text-center">
+            {% trans "This account is inactive." %}
+        </p>
+    </div>
+{% endblock content %}

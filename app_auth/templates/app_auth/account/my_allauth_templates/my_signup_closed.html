@@ -1,11 +1,17 @@
-{% extends "account/base.html" %}
-
+{% extends 'account/my_allauth_templates/_my_account_base.html' %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+{#{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}#}
 
 {% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
+    <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
 
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
-{% endblock %}
+        <div>
+            <h3 class="text-center _text-shadow">{% trans "Sign Up Closed" %}</h3>
+        </div>
+
+       <p class="text-center">
+           {% trans "We are sorry, but the sign up is currently closed." %}
+       </p>
+    </div>
+{% endblock content%}

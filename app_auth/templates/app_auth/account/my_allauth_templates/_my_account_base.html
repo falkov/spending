@@ -7,17 +7,18 @@
 
     <body>
         {% block body %}
-
             {% if messages %}
-                <div>
-                    <strong>Сообщения системы контроля доступа:</strong>
-                    <ul>
+                <div class="d-flex justify-content-center">
+                    <div class="col-6 z-depth-2 blue-gradient rounded animated fadeIn">
+                        <p></p>
                         {% for message in messages %}
-                            <li>{{ message }}</li>
+                            <p class="text-center text-white">{{ message }}</p>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
             {% endif %}
+
+            <br>
 
             <div class="container-fluid ">
                 <div class="row justify-content-md-center">
@@ -25,53 +26,8 @@
                     {% endblock content %}
                 </div>
             </div>
-
         {% endblock body %}
 
         {% block extra_body %} {% endblock extra_body %}
-
     </body>
 </html>
-
-
-{#-------------------------#}
-{#<!DOCTYPE html>#}
-{#<html>#}
-{#  <head>#}
-{#    <title>{% block head_title %}{% endblock %}</title>#}
-{#    {% block extra_head %}#}
-{#    {% endblock %}#}
-{#  </head>#}
-{#  <body>#}
-{#    {% block body %}#}
-{##}
-{#    {% if messages %}#}
-{#    <div>#}
-{#      <strong>Messages:</strong>#}
-{#      <ul>#}
-{#	{% for message in messages %}#}
-{#	<li>{{message}}</li>#}
-{#	{% endfor %}#}
-{#      </ul>#}
-{#    </div>#}
-{#    {% endif %}#}
-{##}
-{#    <div>#}
-{#      <strong>Menu:</strong>#}
-{#      <ul>#}
-{#	{% if user.is_authenticated %}#}
-{#	<li><a href="{% url 'account_email' %}">Change E-mail</a></li>#}
-{#	<li><a href="{% url 'account_logout' %}">Sign Out</a></li>#}
-{#	{% else %}#}
-{#	<li><a href="{% url 'account_login' %}">Sign In</a></li>#}
-{#	<li><a href="{% url 'account_signup' %}">Sign Up</a></li>#}
-{#	{% endif %}#}
-{#      </ul>#}
-{#    </div>#}
-{#    {% block content %}#}
-{#    {% endblock %}#}
-{#    {% endblock %}#}
-{#    {% block extra_body %}#}
-{#    {% endblock %}#}
-{#  </body>#}
-{#</html>#}
