@@ -4,7 +4,7 @@
 {% block content %}
     <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
 
-{#        <div><h3 class="text-center _text-shadow">{% trans "Sign Out" %}</h3></div>#}
+{#        <div><h3 class="text-center falkov-dialog-head_text">{% trans "Sign Out" %}</h3></div>#}
 
         <form method="post" action="{% url 'account_logout' %}">
             {% csrf_token %}

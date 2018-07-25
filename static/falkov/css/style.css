@@ -1,0 +1,27 @@
+body {
+    background: url("../img/white_leather.png");
+}
+
+/*._button {*/
+    /*color: #01b6ad;*/
+    /*background-color: #0a4958;*/
+/*}*/
+
+.falkov-dialog-head_text {
+    color: #013b8d;
+    text-shadow: 2px 2px 2px #838383;
+}
+
+.falkov-sidebar-menu-level_0:hover  {
+    background-color: #003b72;
+}
+.falkov-sidebar-menu-level_1:hover  {
+    background-color: #0076d3;
+}
+
+.falkov-blue-gradient {
+    background-image: linear-gradient(to right, #01121e 0%, #437999 100%);
+}
+.falkov-navbar-gradient {
+    background-image: linear-gradient(to top, #2c85ef 0%, #043264 100%);
+}
