@@ -3,6 +3,11 @@
 
 {% block content %}
     <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
+
+        <button type="button" class="close" aria-label="Close" onclick="window.location.href='{% url 'home' %}'">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
         <div>
             <h3 class="text-center falkov-dialog-head_text">{% trans "Sign In" %}</h3>
         </div>
@@ -29,7 +34,7 @@
 
             <div class="row">
                 <div class="col form-check font-small text-center">
-                    <input type="checkbox" class="filled-in form-check-inline" id="id_remember" checked="checked" >
+                    <input type="checkbox" class="form-check-input" id="id_remember" checked="checked" >
                     <label class="form-check-label" for="id_remember">Запомнить меня</label>
                 </div>
 

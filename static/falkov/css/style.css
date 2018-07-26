@@ -12,11 +12,18 @@ body {
     text-shadow: 2px 2px 2px #838383;
 }
 
-.falkov-sidebar-menu-level_0:hover  {
-    background-color: #003b72;
+.falkov-sidebar-menu-level_0  {
+    /*background-color: blue;*/
 }
+.falkov-sidebar-menu-level_0:hover  {
+    background-color: #000d1a;
+}
+.falkov-sidebar-menu-level_0:active  {
+    background-color: #000d1a;
+}
+
 .falkov-sidebar-menu-level_1:hover  {
-    background-color: #0076d3;
+    background-color: #2a5367;
 }
 
 .falkov-blue-gradient {

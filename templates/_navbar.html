@@ -5,11 +5,11 @@
 
     <ul class="custom-scrollbar">
         <!-- Logo -->
-        <li>
+{#        <li>#}
             <div class="logo-wrapper waves-light">
                 <a href={% url 'home' %}><img src="{% static "falkov/img/board.gif" %}" class="img-fluid flex-center" style="width: 150%"></a>
             </div>
-        </li>
+{#        </li>#}
         <!--/. Logo -->
         <!--Social-->
 {#        <li>#}
@@ -33,12 +33,19 @@
         <!-- Side navigation links -->
         <li>
             <ul class="collapsible collapsible-accordion">
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Пункт меню<i class="fa fa-angle-down rotate-icon"></i></a>
+                <li class="falkov-sidebar-menu-level_1">
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-chevron-right"></i>
+                        Пункт меню для пробы
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+
                     <div class="collapsible-body">
                         <ul>
                             <li class="falkov-sidebar-menu-level_1">
                                 <a href="#" class="waves-effect">Подпункт меню 1</a>
                             </li>
+
                             <li class="falkov-sidebar-menu-level_1">
                                 <a href="#" class="waves-effect">Подпункт меню 2</a>
                             </li>
@@ -47,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r">
+                    <a class="collapsible-header waves-effect arrow">
                         <i class="fa fa-hand-pointer-o"></i> О программе
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -128,10 +135,10 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href={% url 'account_logout' %}>Выйти</a>
+                        <a class="dropdown-item" href={% url 'account_logout' %}> Выйти</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href={% url 'account_change_password' %}>Изменить пароль</a>
-                        <a class="dropdown-item" href={% url 'account_email' %}>Изменить/добавить email</a>
+                        <a class="dropdown-item" href={% url 'account_change_password' %}> Изменить пароль</a>
+                        <a class="dropdown-item" href={% url 'account_email' %}> Изменить/добавить email</a>
                     </div>
                 </li>
             {% else %}
@@ -141,8 +148,8 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href={% url 'account_login' %}>Войти</a>
-                        <a class="dropdown-item" href={% url 'account_signup' %}>Зарегистрироваться</a>
+                        <a class="dropdown-item" href={% url 'account_login' %}> Войти</a>
+                        <a class="dropdown-item" href={% url 'account_signup' %}> Зарегистрироваться</a>
                     </div>
                 </li>
             {% endif %}

@@ -6,6 +6,10 @@
 {% block content %}
     <div class="col-6 z-depth-2 lime lighten-5 rounded animated fadeIn" style="padding: 40px">
 
+        <button type="button" class="close" aria-label="Close" onclick="window.location.href='{% url 'home' %}'">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
         <div>
             <h3 class="text-center falkov-dialog-head_text">{% trans "Verify Your E-mail Address" %}</h3>
         </div>
