@@ -6,10 +6,17 @@
 
 {% block block_content %}
     <p class="h5 text-justify text-uppercase text-center animated fadeInDown" style="color: #570230;">
-        Этот сайт предназначен для запроса и получения данных по чеку из магазина<br>
+        Этот сайт предназначен для запроса и получения данных по чеку из магазинов<br>
     </p>
 
     <a class="btn btn-success btn-rounded z-depth-4" href={% url 'fni' %} >Перейти на страницу запроса данных из FNI</a>
 
+    <p>{{ falkov|upper }}</p>
+    <p>ip =   {{ ip }}</p>
+    <p>user = {{ user }}</p>
+    <p>user.name = {{ user.name }}</p>
+    <p>user.is_authenticated = {{ user.is_authenticated }}</p>
+    <p>user.email = {{ user.email }}</p>
+    <p>user.email.all = {{ user.emailaddress_set.all }}</p>
 {% endblock block_content %}
 

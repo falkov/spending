@@ -18,6 +18,8 @@ from django.urls import include, path
 
 import app_main.views
 import app_fni.views
+import app_add2appauth.views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +27,10 @@ urlpatterns = [
     path('fni/',        app_fni.views.fni,        name='fni'),
     path('check_mail/', app_fni.views.check_mail, name='check_mail'),
 
-    path('home/', app_main.views.home, name='home'),
-    path('', app_main.views.home, name='home'),
+    path('home/', app_main.views.Home.as_view(), name='home'),
+    path('',      app_main.views.Home.as_view(), name='home'),
+
+    path('passwords_for_email/', app_add2appauth.views.PasswordForEmail.as_view(), name='passwords_for_email'),
 
     path('accounts/', include('allauth.urls')),
 ]

@@ -1,0 +1,20 @@
+body {
+    /*background: url("../img/white_leather.png"), rgba(24, 255, 255, 0.5);*/
+    background: url("../img/white_leather.png");
+    /*background: rgba(24, 255, 255, 0.5);*/
+
+}
+
+.falkov_navbar {
+    color: #b01111;
+}
+
+._button {
+    color: #01b6ad;
+    background-color: #0a4958;
+}
+
+._text-shadow {
+    color: #013b8d;
+    text-shadow: 2px 2px 2px #838383;
+}

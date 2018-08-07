@@ -1,0 +1,34 @@
+{#{% load staticfiles %}#}
+
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
+{#{% autoescape off %}#}
+
+{#{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello from {{ site_name }}!#}
+{##}
+{#You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.#}
+{##}
+{#To confirm this is correct, go to {{ activate_url }}#}
+{#{% endblocktrans %}{% endautoescape %}#}
+{#{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!#}
+{#{{ site_domain }}#}
+{#{% endblocktrans %}#}
+
+
+<div>
+    <h3>{% trans "Confirm E-mail Address"|slice:":-1" %}</h3>
+
+    <hr>
+
+
+    <h3>Здравствуйте от {{ current_site.name }}</h3>
+
+    <p>
+        You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.
+        To confirm this is correct, go to {{ activate_url }}
+    </p>
+
+    <img src="../../../../../static/img/myspend_gold.png">
+
+</div>

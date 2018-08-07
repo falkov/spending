@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import View
 
 import sys
 import os
@@ -29,7 +30,8 @@ class MailReader:
         mail_server.login(user=self._user, password=self._psw)
 
         status, msgs = mail_server.select('INBOX')
-        answer_code, msgs_tuples = mail_server.search(None, 'FROM', f'"{self._sender}"')
+        # answer_code, msgs_tuples = mail_server.search(None, 'FROM', f'"{self._sender}"')
+        answer_code, msgs_tuples = mail_server.search(None, 'ALL')
 
         for num in msgs_tuples[0].split():
             code, msg = mail_server.fetch(num, '(RFC822)')
@@ -150,9 +152,9 @@ def fni(request):
 
 
 def check_mail(request):
-    di_gmail = {'host': 'imap.gmail.com', 'port': '993', 'user': 'falkov.mobile@gmail.com', 'psw': 'gamergamer', 'sender': 'sfalkov@icloud.com'}
+    dict_gmail = {'host': 'imap.gmail.com', 'port': '993', 'user': 'falkov.mobile@gmail.com', 'psw': 'gamergamer', 'sender': 'sfalkov@icloud.com'}
 
-    mail_reader = MailReader(di_gmail)
+    mail_reader = MailReader(dict_gmail)
     mail_reader.read_and_save_json()
 
     json_files_reader = JsonFilesReader()

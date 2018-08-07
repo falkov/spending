@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
+
 
 import requests
 import socket
@@ -6,23 +8,16 @@ import socket
 
 # IP = '37.193.167.223'
 # IP = '87.117.46.23'
-IP = '141.8.144.95 '
+IP = '141.8.144.95'
 # IP = '127.0.0.1'
 
 
-# Create your views here.
-def home(request):
+class Home(TemplateView):
+    template_name = 'app_main/home.html'
 
-    # r_json = requests.get(f'http://api.sypexgeo.net/json/{IP}').json()
-    # r_str = f"{r_json['ip']} - {r_json['city']['name_en']} - {r_json['country']['name_en']} ({r_json['city']['name_en']})"
-    # print(r_str)
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
+        context['falkov'] = 'Сергей Фалькович, привет! как дела?'
+        context['ip'] = IP
 
-    # try:
-    #     print(socket.getfqdn(IP))  # hostname
-    # except Exception as err:
-    #     print(err)
-
-
-
-
-    return render(request, 'app_main/home.html', {})
+        return context
